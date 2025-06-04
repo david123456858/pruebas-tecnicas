@@ -11,8 +11,14 @@ const solucion = (n,ratings)=>{
         }
       }
     }
+    console.log(ratings);
+    
+    console.log(numeroPlato);
+    console.log(mayor);
+    
     return numeroPlato
 }
+
 
 /*[[ 521, 3 ],
    [ 521, 4 ],
