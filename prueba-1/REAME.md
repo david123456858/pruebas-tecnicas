@@ -26,13 +26,11 @@ El gerente quiere saber cuál es el plato más querido del restaurante, es decir
 
 ### Ejemplo de Entrada
 
-```
-4
+```4
 512 2
 123 3
 987 4
 123 5
-
 ```
 
 ## Formato de Salida
