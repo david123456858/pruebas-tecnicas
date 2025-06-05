@@ -19,15 +19,15 @@ const ratingsPlates = (n,ratings)=>{
 
     const [id_hash, score] = ratings[i] // esto me dio la vida
 
-    if(id_hash < 1 || id_hash > 10000000000 && score < 1 || score > 5 ) return console.log('number incorrect');
+    if(id_hash < 1 || id_hash > 10000000000 || score < 1 || score > 5 ) return console.log('number incorrect');
 
     if(!(id_hash in recored)){
       recored[id_hash] = 0
       count[id_hash] = 0
     }
 
-    recored[id_hash] = recored[id_hash] + 1
-    count[id_hash] = count[id_hash] + score
+    recored[id_hash] += 1
+    count[id_hash] += score
 
     promedios[id_hash] = count[id_hash]/recored[id_hash]
   
@@ -36,7 +36,7 @@ const ratingsPlates = (n,ratings)=>{
    * recordemos el orden de codigo
    */
   for(const key in promedios){
-    if(promedios[key] > mayor && resultadoProm < key) {
+    if(promedios[key] > mayor ||(promedios[key] === mayor && key < resultadoProm) ) {
       mayor = promedios[key]
       resultadoProm = key
     }
@@ -49,4 +49,4 @@ const ratingsPlates = (n,ratings)=>{
 }
 
 
-ratingsPlates(6,[[521,3],[12,3],[97,4],[12,5],[11,4],[2,4],[2,5]])
+ratingsPlates(6,[[521,3],[12,5],[97,4],[12,5],[11,4],[2,4],[2,2],[1,2]])
