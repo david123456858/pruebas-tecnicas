@@ -8,10 +8,12 @@
 const ratingsPlates = (n,ratings)=>{
   let recored = {}
   let count = {}
-  let promedios = {}
+  let avrg = {}
 
-  let resultadoProm = -1
+  let bestHashId = -1
   let mayor = 0
+
+  if(n < ratings.length) return console.log('no conhincide los numeros');
   
   if(n < 1 | n > 100000 ) return console.log('number the n plates incorrect');
   
@@ -29,22 +31,22 @@ const ratingsPlates = (n,ratings)=>{
     recored[id_hash] += 1
     count[id_hash] += score
 
-    promedios[id_hash] = count[id_hash]/recored[id_hash]
+    avrg[id_hash] = count[id_hash]/recored[id_hash]
   
   }
   /**
    * recordemos el orden de codigo
    */
-  for(const key in promedios){
-    if(promedios[key] > mayor ||(promedios[key] === mayor && key < resultadoProm) ) {
-      mayor = promedios[key]
-      resultadoProm = key
+  for(const key in avrg){
+    if(avrg[key] > mayor ||(avrg[key] === mayor && key < bestHashId) ) {
+      mayor = avrg[key]
+      bestHashId = key
     }
   }
 
-  console.log("el mayor",resultadoProm);
+  console.log("el mayor",bestHashId);
   console.log('aca la cuenta',recored);
-  console.log('aca el promedio',promedios);
+  console.log('aca el promedio',avrg);
 
 }
 
