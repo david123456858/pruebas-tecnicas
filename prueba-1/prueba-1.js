@@ -8,7 +8,7 @@
 const ratingsPlates = (n,ratings)=>{
   let recored = {}
   let count = {}
-  let promedioMayor = {}
+  let promedios = {}
 
   let resultadoProm = -1
   let mayor = 0
@@ -29,23 +29,24 @@ const ratingsPlates = (n,ratings)=>{
     recored[id_hash] = recored[id_hash] + 1
     count[id_hash] = count[id_hash] + score
 
-    promedioMayor[id_hash] = count[id_hash]/recored[id_hash]
+    promedios[id_hash] = count[id_hash]/recored[id_hash]
   
   }
   /**
    * recordemos el orden de codigo
    */
-  for(const key in promedioMayor){
-    if(promedioMayor[key] > mayor && resultadoProm < key) {
-      mayor = promedioMayor[key]
+  for(const key in promedios){
+    if(promedios[key] > mayor && resultadoProm < key) {
+      mayor = promedios[key]
       resultadoProm = key
     }
   }
 
   console.log("el mayor",resultadoProm);
   console.log('aca la cuenta',recored);
-  console.log('aca el promedio',count);
+  console.log('aca el promedio',promedios);
 
 }
 
-ratingsPlates(6,[[521,3],[12,3],[97,4],[12,5],[11,4],[2,4]])
+
+ratingsPlates(6,[[521,3],[12,3],[97,4],[12,5],[11,4],[2,4],[2,5]])
