@@ -5,12 +5,12 @@
  * en variables esperables segun la posicion de la matriz
  * @returns 
  */
-const ratingsPlates = (n,ratings = [])=>{
+const ratingsPlates = (n,ratings)=>{
   let recored = {}
   let count = {}
   let promedioMayor = {}
 
-  let resultadoProm = 0
+  let resultadoProm = -1
   let mayor = 0
   
   if(n < 1 | n > 100000 ) return console.log('number the n plates incorrect');
@@ -36,26 +36,16 @@ const ratingsPlates = (n,ratings = [])=>{
    * recordemos el orden de codigo
    */
   for(const key in promedioMayor){
-    if(promedioMayor[key] > mayor) {
+    if(promedioMayor[key] > mayor && resultadoProm < key) {
       mayor = promedioMayor[key]
       resultadoProm = key
-
     }
-
-    if(promedioMayor[key] === mayor){
-      if(resultadoProm > key){
-        resultadoProm = key
-      }
-    }
-      
   }
 
   console.log("el mayor",resultadoProm);
-  
   console.log('aca la cuenta',recored);
   console.log('aca el promedio',count);
-  
 
 }
 
-ratingsPlates(5,[[521,3],[12,3],[97,4],[12,5],[11,4]])
+ratingsPlates(6,[[521,3],[12,3],[97,4],[12,5],[11,4],[2,4]])
