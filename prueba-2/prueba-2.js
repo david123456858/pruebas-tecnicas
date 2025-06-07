@@ -1,6 +1,9 @@
 /**
  * 1. de las conversiones
  * 2. ver cuantos 60 estan el los segundos dados (3000) cuantos 60 hay? ()
+ * 
+ * recorger e ir haciendo las equivalencias de las unidades de medida de tiempo
+ * la regresion de los segundos debe ser un paso adelante un paso atras
  */
 obcjectTime={
         "años":0,
