@@ -15,21 +15,32 @@ obcjectTime={
     }
 
 const transformSeconds = (seconds)=> {
-    vectorTime = []
+    vectorTimeAux = []
+    
     let countTime = 0
     
     if(seconds < 0) return 'Number incorrect negative'
 
     if (seconds === 0) return 'Now'
-    
-    for(let i = 0; i < 6;i++){
-        const count = seconds/60
-        if(i===0){
 
+    if (seconds < 60){
+        console.log(`${seconds} seconds`);
+    }
+
+    for(let i = 0; i < 6;i++){
+        if (i <= 0){
+            const minutes = seconds/60
+            const minutesTotal = Math.floor(minutes)
+            const partDecimal = minutes - minutesTotal
+            const realSeconds = partDecimal * 60
+
+            console.log(parseInt(minutes.toFixed(0)) ,parseInt(realSeconds.toFixed(0)));
+            
+            
         } 
     }    
 }
 
-transformSeconds(62)
+transformSeconds(245466)
 
 

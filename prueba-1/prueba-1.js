@@ -10,7 +10,7 @@ const ratingsPlates = (n,ratings)=>{
   let count = {}
   let avrg = {}
 
-  let bestHashId = -1
+  let bestHashId = -1 // para que cualquier numero que sea mayoe
   let mayor = 0
 
   if(n < ratings.length) return console.log('no conhincide los numeros');
