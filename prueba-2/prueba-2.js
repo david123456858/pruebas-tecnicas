@@ -16,9 +16,6 @@ obcjectTime={
 
 const transformSeconds = (seconds)=> {
     vectorTimeAux = []
-    
-    let countTime = 0
-    
     if(seconds < 0) return 'Number incorrect negative'
 
     if (seconds === 0) return 'Now'
@@ -29,19 +26,19 @@ const transformSeconds = (seconds)=> {
 
     for(let i = 0; i < 6;i++){
         if (i <= 1){
-            const valor = seconds/60
-            const valorTotal = Math.floor(valor)
-            if (i === 1){
-                
-            }
-            const partDecimal = valor - valorTotal
-            const realSeconds = partDecimal * 60
-            obcjectTime['Minutos'] = parseInt(valor.toFixed(0))
-            obcjectTime["Segundos"] = parseInt(realSeconds.toFixed(0))
+            
         } 
     }   
     console.log(obcjectTime);
      
+}
+
+const transformerValueTimes = (valueTime)=>{
+    const valor = value1/60
+    const valorNeto = Math.floor(valor)
+    const partDecimal = valor - valorNeto
+    const valueRestant =  partDecimal * 60
+    return [valorNeto,parseInt(valueRestant.toFixed(0))]// --> 7,0,3334543
 }
 
 transformSeconds(245466)
