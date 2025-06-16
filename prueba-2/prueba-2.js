@@ -28,17 +28,20 @@ const transformSeconds = (seconds)=> {
     }
 
     for(let i = 0; i < 6;i++){
-        if (i <= 0){
-            const minutes = seconds/60
-            const minutesTotal = Math.floor(minutes)
-            const partDecimal = minutes - minutesTotal
+        if (i <= 1){
+            const valor = seconds/60
+            const valorTotal = Math.floor(valor)
+            if (i === 1){
+                
+            }
+            const partDecimal = valor - valorTotal
             const realSeconds = partDecimal * 60
-
-            console.log(parseInt(minutes.toFixed(0)) ,parseInt(realSeconds.toFixed(0)));
-            
-            
+            obcjectTime['Minutos'] = parseInt(valor.toFixed(0))
+            obcjectTime["Segundos"] = parseInt(realSeconds.toFixed(0))
         } 
-    }    
+    }   
+    console.log(obcjectTime);
+     
 }
 
 transformSeconds(245466)
