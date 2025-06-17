@@ -10,21 +10,46 @@ obcjectTime={
         "Days":0,
         "Hours":0,
         "Minutes":0,
-        "Seconds":0
+        "Seconds":0,
+        toStringTime(objc){
+           
+        }
     }
+
+class time {
+    Years
+    Days
+    Hours
+    Minutes
+    Seconds
+    constructor(Years,Days,Hours,Minutes,Seconds){
+        this.Years = Years,
+        this.Days = Days,
+        this.Hours = Hours
+        this.Minutes = Minutes,
+        this.Seconds = Seconds
+        this.toStringTime = this.bind(this.toStringTime)
+    }
+
+        toStringTime(){
+            
+        }   
+}
+
+
 
 const transformSeconds = (seconds)=> {
     let value = seconds
     let valueAux = 0
+
     if(seconds < 0) return 'Number incorrect negative'
 
     if (seconds === 0) return 'Now'
 
-    if (seconds < 60){
-        console.log(`${seconds} seconds`);
-    }
+    if (seconds < 60) console.log(`${seconds} seconds`);
+    
 
-    for(let i = 0; i < 6;i++){
+    for(let i = 0; i <= 4;i++){
         if (i <= 1){
             valueAux = transformerValueTimes(value,60)
             value = valueAux[0]
@@ -64,7 +89,7 @@ const transformerValueTimes = (unitMain,divisor)=>{ //--> (65seconds,60)
     const subValue = Math.floor(mainValue) // --> 1
     const partDecimal = mainValue - subValue// --> 1,083333333333333 - 1 = 0,833333 
     const valueRestant =  partDecimal * divisor //--> 5 seconds
-    return [valorNeto,parseInt(valueRestant.toFixed(0))]// --> [1, 5]
+    return [subValue,parseInt(valueRestant.toFixed(0))]// --> [1, 5]
 }
 
 transformSeconds(31536002)
