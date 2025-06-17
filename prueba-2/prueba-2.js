@@ -38,8 +38,12 @@ const transformSeconds = (seconds)=> {
         if(i === 2){
             if(value < 24){
                 obcjectTime['Horas'] = value
+            }else{
+                valueAux = transformerValueTimes(value,24)
+                value = valueAux[0]
+                obcjectTime['Horas'] = valueAux[1]
             }
-        }
+        }    
     }   
     console.log(value);
     
@@ -52,9 +56,9 @@ const transformerValueTimes = (valueTime,value)=>{
     const valorNeto = Math.floor(valor)
     const partDecimal = valor - valorNeto
     const valueRestant =  partDecimal * value
-    return [valorNeto,parseInt(valueRestant.toFixed(0))]// --> 7,58
+    return [valorNeto,parseInt(valueRestant.toFixed(0))]// --> [7,58]
 }
 
-transformSeconds(68)
+transformSeconds(486000)
 
 
