@@ -6,16 +6,14 @@
  * la regresion de los segundos debe ser un paso adelante un paso atras
  */
 obcjectTime={
-        "años":0,
-        "Meses":0,
-        "Días":0,
+        "anos":0,
+        "Dias":0,
         "Horas":0,
         "Minutos":0,
         "Segundos":0
     }
 
 const transformSeconds = (seconds)=> {
-    vectorTimeAux = []
     let value = seconds
     let valueAux = 0
     if(seconds < 0) return 'Number incorrect negative'
@@ -43,6 +41,14 @@ const transformSeconds = (seconds)=> {
                 value = valueAux[0]
                 obcjectTime['Horas'] = valueAux[1]
             }
+        }
+        if(i === 3){
+            if(value === 365){
+                obcjectTime['anos'] = 1
+            } 
+            if(value >= 365){
+                
+            }
         }    
     }   
     console.log(value);
@@ -59,6 +65,4 @@ const transformerValueTimes = (valueTime,value)=>{
     return [valorNeto,parseInt(valueRestant.toFixed(0))]// --> [7,58]
 }
 
-transformSeconds(486000)
-
-
+transformSeconds(3662)
