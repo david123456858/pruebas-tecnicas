@@ -21,13 +21,7 @@ class time {
         
     }
 
-    transformerValueTimes = (unitMain,divisor)=>{ //--> (65seconds,60)
-        const mainValue = unitMain/divisor // --> 1,083333333333333
-        const subValue = Math.floor(mainValue) // --> 1
-        const partDecimal = mainValue - subValue// --> 1,083333333333333 - 1 = 0,833333 
-        const valueRestant =  partDecimal * divisor //--> 5 seconds
-        return [subValue,parseInt(valueRestant.toFixed(0))]// --> [1, 5]
-    }
+    
     transformSeconds(seconds){
         let value = seconds
         let valueAux = 0
@@ -40,7 +34,7 @@ class time {
 
         for(let i = 0; i <= 4;i++){
             if (i <= 1){
-                valueAux = transformerValueTimes(value,60)
+                valueAux = this.transformerValueTimes(value,60)
                 value = valueAux[0]
                 if(i === 0){
                     this.Seconds = valueAux[1]
@@ -53,14 +47,14 @@ class time {
                 if(value < 24){
                     this.Hours = value
                 }else{
-                    valueAux = transformerValueTimes(value,24)
+                    valueAux = this.transformerValueTimes(value,24)
                     value = valueAux[0]
                     this.Hours = valueAux[1]
                 }
             }
             if(i === 3){
                 if(value >= 365){
-                    valueAux = transformerValueTimes(value,365)
+                    valueAux = this.transformerValueTimes(value,365)
                     this.Years = valueAux[0]
                     this.Days = valueAux[1]
                 }else{
@@ -68,13 +62,24 @@ class time {
                 }
             }    
         }   
-        console.log(value);
-        console.log(obcjectTime);
     }
     toStringTime(){
+
+        let infoTime
         for(const key in this){
-            console.log(this[key]);
+            if (this[key] != 0){
+                infoTime = [key,this[key]]
+            }
         }
+        
+        
+    }
+    transformerValueTimes = (unitMain,divisor)=>{ //--> (65seconds,60)
+        const mainValue = unitMain/divisor // --> 1,083333333333333
+        const subValue = Math.floor(mainValue) // --> 1
+        const partDecimal = mainValue - subValue// --> 1,083333333333333 - 1 = 0,833333 
+        const valueRestant =  partDecimal * divisor //--> 5 seconds
+        return [subValue,parseInt(valueRestant.toFixed(0))]// --> [1, 5]
     }
 }
 
