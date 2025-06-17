@@ -29,9 +29,11 @@ const transformSeconds = (seconds)=> {
             valueAux = transformerValueTimes(value,60)
             value = valueAux[0]
             if(i === 0){
-               obcjectTime['Seconds'] = valueAux[1]
+                obcjectTime['Seconds'] = valueAux[1]
+            }else if (i === 1){
+                obcjectTime['Minutes'] = valueAux[1]
             }
-            obcjectTime['Minutes'] = valueAux[1]
+            
         } //--> part seconds, minutes and hours
         if(i === 2){
             if(value < 24){
@@ -57,11 +59,11 @@ const transformSeconds = (seconds)=> {
      
 }
 // funcion generica
-const transformerValueTimes = (valueTime,value)=>{ //--> (65seconds,60)
-    const valor = valueTime/value // --> 1,083333333333333
-    const valorNeto = Math.floor(valor) // --> 1
-    const partDecimal = valor - valorNeto// --> 1,083333333333333 - 1 = 0,833333 
-    const valueRestant =  partDecimal * value //--> 5 seconds
+const transformerValueTimes = (unitMain,divisor)=>{ //--> (65seconds,60)
+    const mainValue = unitMain/divisor // --> 1,083333333333333
+    const subValue = Math.floor(mainValue) // --> 1
+    const partDecimal = mainValue - subValue// --> 1,083333333333333 - 1 = 0,833333 
+    const valueRestant =  partDecimal * divisor //--> 5 seconds
     return [valorNeto,parseInt(valueRestant.toFixed(0))]// --> [1, 5]
 }
 
