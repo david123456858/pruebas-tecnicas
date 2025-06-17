@@ -28,28 +28,33 @@ const transformSeconds = (seconds)=> {
 
     for(let i = 0; i < 6;i++){
         if (i <= 1){
-            valueAux = transformerValueTimes(value)
+            valueAux = transformerValueTimes(value,60)
             value = valueAux[0]
             if(i === 0){
                obcjectTime['Segundos'] = valueAux[1]
             }
             obcjectTime['Minutos'] = valueAux[1]
-        } 
+        } //--> part seconds, minutes and hours
+        if(i === 2){
+            if(value < 24){
+                obcjectTime['Horas'] = value
+            }
+        }
     }   
     console.log(value);
     
     console.log(obcjectTime);
      
 }
-
-const transformerValueTimes = (valueTime)=>{
-    const valor = valueTime/60
+// funcion generica
+const transformerValueTimes = (valueTime,value)=>{
+    const valor = valueTime/value
     const valorNeto = Math.floor(valor)
     const partDecimal = valor - valorNeto
-    const valueRestant =  partDecimal * 60
+    const valueRestant =  partDecimal * value
     return [valorNeto,parseInt(valueRestant.toFixed(0))]// --> 7,58
 }
 
-transformSeconds(245466)
+transformSeconds(68)
 
 
