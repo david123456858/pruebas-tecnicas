@@ -57,12 +57,12 @@ const transformSeconds = (seconds)=> {
      
 }
 // funcion generica
-const transformerValueTimes = (valueTime,value)=>{
-    const valor = valueTime/value
-    const valorNeto = Math.floor(valor)
-    const partDecimal = valor - valorNeto
-    const valueRestant =  partDecimal * value
-    return [valorNeto,parseInt(valueRestant.toFixed(0))]// --> [7,58]
+const transformerValueTimes = (valueTime,value)=>{ //--> (65seconds,60)
+    const valor = valueTime/value // --> 1,083333333333333
+    const valorNeto = Math.floor(valor) // --> 1
+    const partDecimal = valor - valorNeto// --> 1,083333333333333 - 1 = 0,833333 
+    const valueRestant =  partDecimal * value //--> 5 seconds
+    return [valorNeto,parseInt(valueRestant.toFixed(0))]// --> [1, 5]
 }
 
 transformSeconds(31536002)
