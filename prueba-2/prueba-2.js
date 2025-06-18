@@ -6,7 +6,7 @@
  * la regresion de los #seconds debe ser un paso adelante un paso atras
  */
 class time {
-    //--> se recomienda utilizar para propiedades privadas en js adelante con #
+    //--> utilizar para propiedades privadas en js adelante con #
     #years 
     #days
     #hours
@@ -72,12 +72,24 @@ class time {
     }
     toStringTime(){
         const data = this.toObject()
+        let stringInfotime = ``
         for(const [key,value] of Object.entries(data)){
             if(value > 0){
-                console.log(key,value);
+                if(key === 'Second'){
+                    stringInfotime += ' and '
+                    stringInfotime += value > 1 ? `${value} ${key}s` : `${value} ${key}`
+                }else{
+                    stringInfotime += `, `
+                }
+                if (key !== 'Second'){
+                    stringInfotime += value > 1 ? `${value} ${key}s` : `${value} ${key}`
+                }
+                
                 
             }
         }
+        console.log(stringInfotime);
+        
     }
     /**
      * 
