@@ -30,8 +30,6 @@ class time {
 
         if (seconds === 0) return 'Now'
 
-        if (seconds < 60) console.log(`${seconds} #seconds`);
-
         for(let i = 0; i <= 4;i++){
             if (i <= 1){
                 valueAux = this.transformerValueTimes(value,60)
@@ -72,24 +70,24 @@ class time {
     }
     toStringTime(){
         const data = this.toObject()
+        let i = 0
         let stringInfotime = ``
         for(const [key,value] of Object.entries(data)){
             if(value > 0){
                 if(key === 'Second'){
-                    stringInfotime += ' and '
+                    stringInfotime += stringInfotime.length === 0 ? '': ' and '
                     stringInfotime += value > 1 ? `${value} ${key}s` : `${value} ${key}`
-                }else{
+                } else if(i != 0){
                     stringInfotime += `, `
                 }
                 if (key !== 'Second'){
                     stringInfotime += value > 1 ? `${value} ${key}s` : `${value} ${key}`
                 }
-                
-                
+
             }
+            i++
         }
         console.log(stringInfotime);
-        
     }
     /**
      * 
@@ -111,7 +109,7 @@ class time {
 }
 
 const timeInstance = new time()
-timeInstance.transformSeconds(31536002)
+timeInstance.transformSeconds(61)
 timeInstance.toStringTime()
 
 //transform#Seconds(31536002)
