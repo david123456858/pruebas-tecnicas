@@ -69,10 +69,9 @@ class time {
         return [subValue,parseInt(valueRestant.toFixed(0))]// --> [1, 5]
     }
     toStringTime(){
-        const data = this.toObject()
         let i = 0
         let stringInfotime = ``
-        for(const [key,value] of Object.entries(data)){
+        for(const [key,value] of Object.entries(this.toObject())){
             if(value > 0){
                 if(key === 'Second'){
                     stringInfotime += stringInfotime.length === 0 ? '': ' and '
