@@ -6,7 +6,8 @@
  * la regresion de los #seconds debe ser un paso adelante un paso atras
  */
 class time {
-    #years
+    //--> se recomienda utilizar para propiedades privadas en js adelante con #
+    #years 
     #days
     #hours
     #minutes
@@ -16,12 +17,11 @@ class time {
         this.#years = 0
         this.#days = 0
         this.#hours = 0
-        this.Minutes = 0
+        this.#minutes = 0
         this.#seconds = 0
         
     }
 
-    
     transformSeconds(seconds){
         let value = seconds
         let valueAux = 0
@@ -39,7 +39,7 @@ class time {
                 if(i === 0){
                     this.#seconds = valueAux[1]
                 }else if (i === 1){
-                    this.Minutes = valueAux[1]
+                    this.#minutes = valueAux[1]
                 }
             
             } //--> part #seconds, #minutes and #hours
@@ -63,19 +63,6 @@ class time {
             }    
         }   
     }
-    toStringTime(){
-
-        let infoTime
-        for(const key in this){
-            if (this[key] != 0){
-                infoTime = [key,this[key]]
-                console.log(infoTime[1]);
-                
-            }
-        }
-        
-        
-    }
     transformerValueTimes = (unitMain,divisor)=>{ //--> (65#seconds,60)
         const mainValue = unitMain/divisor // --> 1,083333333333333
         const subValue = Math.floor(mainValue) // --> 1
@@ -83,6 +70,32 @@ class time {
         const valueRestant =  partDecimal * divisor //--> 5 #seconds
         return [subValue,parseInt(valueRestant.toFixed(0))]// --> [1, 5]
     }
+    toStringTime(){
+        const data = this.toObject()
+        for(const [key,value] of Object.entries(data)){
+            if(value > 0){
+                console.log(key,value);
+                
+            }
+        }
+    }
+    /**
+     * 
+     * @returns object with atributes the class
+     * Al colocar los atrivutos privador el this no le permite acceder a las propiedades toca 
+     * retornarlas en una tupla como la siguente o un objeto clave-valor
+     */
+    toObject(){
+        return {
+            Year: this.#years,
+            Day: this.#days,
+            Hour: this.#hours,
+            Minute: this.#minutes,
+            Second: this.#seconds
+        }
+    }
+
+    
 }
 
 const timeInstance = new time()
