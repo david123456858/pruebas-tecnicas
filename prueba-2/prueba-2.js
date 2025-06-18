@@ -56,7 +56,7 @@ class time {
                     this.#years = valueAux[0]
                     this.#days = valueAux[1]
                 }else{
-                    this.#years = value
+                    this.#days = value
                 }
             }    
         }   
@@ -109,7 +109,7 @@ class time {
 }
 
 const timeInstance = new time()
-timeInstance.transformSeconds(63331)
+timeInstance.transformSeconds(86400)
 timeInstance.toStringTime()
 
 //transform#Seconds(31536002)
