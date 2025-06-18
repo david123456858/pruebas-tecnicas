@@ -44,6 +44,7 @@ class time {
             if(i === 2){
                 if(value < 24){
                     this.#hours = value
+                    value = 0
                 }else{
                     valueAux = this.transformerValueTimes(value,24)
                     value = valueAux[0]
@@ -107,9 +108,31 @@ class time {
 
     
 }
+// prueba con todas check ✅
+const pruebas = [
+  0,
+  45,
+  75,
+  3600,
+  3661,
+  86400,
+  90061,
+  172800,
+  31536000,
+  31626061,
+  63072000,
+  63158461,
+  100000000
+];
 
-const timeInstance = new time()
-timeInstance.transformSeconds(86400)
-timeInstance.toStringTime()
+for (const s of pruebas) {
+  const t = new time();
+  const res = t.transformSeconds(s);
+  if (res === 'Now' || res === 'Number incorrect negative') {
+    console.log(`${s} → ${res}`);
+  } else {
+    t.toStringTime();
+  }
+}
 
 //transform#Seconds(31536002)
