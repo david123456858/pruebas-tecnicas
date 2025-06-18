@@ -3,7 +3,7 @@
  * 2. ver cuantos 60 estan el los #seconds dados (3000) cuantos 60 hay? ()
  * 
  * recorger e ir haciendo las equivalencias de las unidades de medida de tiempo
- * la regresion de los #seconds debe ser un paso adelante un paso atras
+ * la regresion de los seconds debe ser un paso adelante un paso atras
  */
 class time {
     //--> utilizar para propiedades privadas en js adelante con #
@@ -82,10 +82,11 @@ class time {
                 }
                 if (key !== 'Second'){
                     stringInfotime += value > 1 ? `${value} ${key}s` : `${value} ${key}`
+                    i++
                 }
 
             }
-            i++
+            
         }
         console.log(stringInfotime);
     }
@@ -109,7 +110,7 @@ class time {
 }
 
 const timeInstance = new time()
-timeInstance.transformSeconds(61)
+timeInstance.transformSeconds(63331)
 timeInstance.toStringTime()
 
 //transform#Seconds(31536002)
