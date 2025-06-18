@@ -1,23 +1,23 @@
 /**
  * 1. de las conversiones
- * 2. ver cuantos 60 estan el los Seconds dados (3000) cuantos 60 hay? ()
+ * 2. ver cuantos 60 estan el los seconds dados (3000) cuantos 60 hay? ()
  * 
  * recorger e ir haciendo las equivalencias de las unidades de medida de tiempo
- * la regresion de los Seconds debe ser un paso adelante un paso atras
+ * la regresion de los seconds debe ser un paso adelante un paso atras
  */
 class time {
-    Years
-    Days
-    Hours
-    Minutes
-    Seconds
+    years
+    days
+    hours
+    minutes
+    seconds
 
     constructor(){
-        this.Years = 0
-        this.Days = 0
-        this.Hours = 0
+        this.years = 0
+        this.days = 0
+        this.hours = 0
         this.Minutes = 0
-        this.Seconds = 0
+        this.seconds = 0
         
     }
 
@@ -37,7 +37,7 @@ class time {
                 valueAux = this.transformerValueTimes(value,60)
                 value = valueAux[0]
                 if(i === 0){
-                    this.Seconds = valueAux[1]
+                    this.seconds = valueAux[1]
                 }else if (i === 1){
                     this.Minutes = valueAux[1]
                 }
@@ -45,20 +45,20 @@ class time {
             } //--> part seconds, minutes and hours
             if(i === 2){
                 if(value < 24){
-                    this.Hours = value
+                    this.hours = value
                 }else{
                     valueAux = this.transformerValueTimes(value,24)
                     value = valueAux[0]
-                    this.Hours = valueAux[1]
+                    this.hours = valueAux[1]
                 }
             }
             if(i === 3){
                 if(value >= 365){
                     valueAux = this.transformerValueTimes(value,365)
-                    this.Years = valueAux[0]
-                    this.Days = valueAux[1]
+                    this.years = valueAux[0]
+                    this.days = valueAux[1]
                 }else{
-                    this.Years = value
+                    this.years = value
                 }
             }    
         }   
