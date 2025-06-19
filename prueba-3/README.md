@@ -12,6 +12,7 @@ Nuestro informante no está completamente seguro del PIN que Vincent ingresó, p
 
 El teclado tiene la siguiente disposición:
 
+```
 ┌───┬───┬───┐
 │ 1 │ 2 │ 3 │
 ├───┼───┼───┤
@@ -21,6 +22,7 @@ El teclado tiene la siguiente disposición:
 └───┼───┼───┘
 │ 0 │
 └───┘
+```
 
 
 - Solo se consideran movimientos **horizontales y verticales** (no diagonales).
