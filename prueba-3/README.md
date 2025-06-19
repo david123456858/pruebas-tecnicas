@@ -20,8 +20,8 @@ El teclado tiene la siguiente disposición:
 ├───┼───┼───┤
 │ 7 │ 8 │ 9 │
 └───┼───┼───┘
-│ 0 │
-└───┘
+    │ 0 │
+    └───┘
 ```
 
 
